@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058582601894",
+    "project_id": "admineasy-4ba60",
+    "storage_bucket": "admineasy-4ba60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058582601894:android:f2fc7ffe618dafabf89467",
+        "android_client_info": {
+          "package_name": "com.admineasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058582601894-un1taufmj24u0l12rrni3t0956bfego3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdbYreNjI29FQeZR2vf1A1GfoEMUs85Tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058582601894-un1taufmj24u0l12rrni3t0956bfego3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
