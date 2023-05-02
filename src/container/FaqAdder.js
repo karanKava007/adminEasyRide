@@ -10,10 +10,10 @@ import { horizontalScale, verticalScale } from '../helper/Metric'
 export default function FaqAdder() {
   const dispatch = useDispatch()
   const postDat = useSelector(state => state.fetcher)
-  const [id, setId] = useState()
+  const [id,setId]=useState()
   const [title, setTitle] = useState()
   const [description, setDescription] = useState()
-  const [update , setupdate] = useState(false)
+  const [update, setupdate] = useState(false)
 
 
   useEffect(() => {
@@ -22,9 +22,8 @@ export default function FaqAdder() {
 
   const AddData = () => {
     let data = {
-      id:id,
-      title:title,
-      body:description,
+      title: title,
+      body: description,
     }
     dispatch(postData(data))
   }
@@ -33,25 +32,32 @@ export default function FaqAdder() {
     dispatch(deleteData(id))
   }
   const handleUpdate = (item) => {
-    setId(item.id.toString())
+    setId(item.id)
     setTitle(item.title)
     setDescription(item.body)
     setupdate(true)
   }
-  const UpdateData =()=>{
+  const UpdateData = () => {
     let updata = {
-      id:parseInt(id),
-      title:title,
-      body:description,
+      id:id,
+      title: title,
+      body: description,
     }
     dispatch(putData(updata))
+    clearState()
+  }
+
+  const clearState = () => {
+    setId('')
+    setTitle('')
+    setDescription('')
+    setupdate(false)
   }
   return (
     <ScrollView>
       <View style={styles.fullFlex}>
-        <TextInput style={styles.input} value={id} placeholder='ID' placeholderTextColor={'black'} onChangeText={setId}/>
-        <TextInput style={styles.input} value={title} placeholder='Title' placeholderTextColor={'black'} onChangeText={setTitle}/>
-        <TextInput style={styles.input} value={description} placeholder='Description' placeholderTextColor={'black'} onChangeText={setDescription}/>
+        <TextInput style={styles.input} value={title} placeholder='Title' placeholderTextColor={'black'} onChangeText={setTitle} />
+        <TextInput style={styles.input} value={description} placeholder='Description' placeholderTextColor={'black'} onChangeText={setDescription} />
         <View style={styles.MainTouch}>
           <TouchableOpacity style={styles.button} onPress={update ? UpdateData : AddData}>
             <Text style={styles.btnText}>Add/Update FAQ</Text>
@@ -64,11 +70,11 @@ export default function FaqAdder() {
               <>
                 <View style={styles.container}>
                   <View style={styles.container1}>
-                    <Text style={styles.txt}>{item.id}</Text>
+                    <Text style={styles.txt1}><Text style={styles.txt2}>Id:--</Text>{item.id}</Text>
                     <Text style={styles.txt1}><Text style={styles.txt2}>Title:--</Text>{item.title}</Text>
                     <Text style={styles.txt1}><Text style={styles.txt2}>Description:--</Text>{item.body}
                       <MaterialCommunityIcons name="delete" size={25} onPress={() => { handleDelete(item.id) }} />
-                      <MaterialIcons name="edit" size={20} onPress={()=>handleUpdate(item)}/></Text>
+                      <MaterialIcons name="edit" size={20} onPress={() => handleUpdate(item)} /></Text>
                   </View>
                 </View>
               </>
@@ -109,33 +115,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  txt: {
-    color: 'black',
-    fontSize: 20,
-    marginLeft:'5%',
-    marginTop:'2%',
-  },
+  // txt: {
+  //   color: 'black',
+  //   fontSize: 20,
+  //   marginLeft: '5%',
+  //   marginTop: '2%',
+  // },
   txt1: {
     color: '#898989',
     fontSize: 15,
-    marginLeft:'5%',
+    marginLeft: '5%',
+    marginTop: '2%',
   },
-  txt2:{
-    color:'black',
+  txt2: {
+    color: 'black',
     fontSize: 20,
-    fontWeight:'500',
-  }, 
+    fontWeight: '500',
+  },
   container: {
     alignItems: 'center',
   },
   container1: {
     backgroundColor: 'white',
-    height: verticalScale(250),
+    height: verticalScale(150),
     width: horizontalScale(330),
     marginTop: '5%',
     borderRadius: 10,
     // borderWidth: 1,
     borderRadius: 10,
-    elevation:10,
+    elevation: 10,
   },
 })

@@ -1,4 +1,12 @@
-export const GET_DATA = 'GET_DATA'
-export const POST_DATA = 'POST_DATA'
-export const PUT_DATA = 'PUT_DATA'
-export const DELETE_DATA = 'DELETE_DATA'
+export const GET_FAQ = 'GET_FAQ'
+export const POST_FAQ = 'POST_FAQ'
+export const PUT_FAQ = 'PUT_FAQ'
+export const DELETE_FAQ = 'DELETE_FAQ'
+
+export const GET_PIN = 'GET_PIN'
+export const POST_PIN = 'POST_PIN'
+export const PUT_PIN = 'PUT_PIN'
+export const DELETE_PIN ='DELETE_PIN'
+
+
+
